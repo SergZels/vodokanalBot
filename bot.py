@@ -44,7 +44,7 @@ async def get_pib(message: types.Message, state: FSMContext):
         data['pib'] = message.text
     print(f"ПІБ - {message.text}")
     await FSMzap.next()
-    await message.reply("Введіть адресу:")
+    await message.reply("Введіть адресу: ")
 
 @dp.message_handler(state=FSMzap.address)
 async def get_address(message: types.Message, state: FSMContext):
