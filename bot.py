@@ -13,6 +13,7 @@ storage = MemoryStorage()
 dp = Dispatcher(bot,storage=storage)
 botBD = botBD()
 
+
 class FSMzap(StatesGroup):
     os_raxunok = State()
     pib = State()
@@ -27,7 +28,7 @@ async def send_welcome(message: types.Message):
 async def echo(message : types.Message):
     #await message.reply(message.text)
     await FSMzap.os_raxunok.set()
-    await message.answer("Напишіть ваш особовий рахунок:",reply_markup=ReplyKeyboardRemove())
+    await message.answer("Напишіть ваш особовий рахунок: ",reply_markup=ReplyKeyboardRemove())
 
 @dp.message_handler(state=FSMzap.os_raxunok)
 async def get_os_raxunok(message: types.Message, state: FSMContext):
