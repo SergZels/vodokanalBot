@@ -44,7 +44,7 @@ async def get_pib(message: types.Message, state: FSMContext):
         data['pib'] = message.text
     print(f"ПІБ - {message.text}")
     await FSMzap.next()
-    await message.reply("Введіть адресу: ")
+    await message.reply("Введіть адресу:")
 
 @dp.message_handler(state=FSMzap.address)
 async def get_address(message: types.Message, state: FSMContext):
@@ -72,7 +72,7 @@ async def echo(message : types.Message):
         print(te)
         await message.reply(te)
     else:
-        await message.answer("Не розумію")
+        await message.answer("Не розумію!")
     
-print("Bot running")
+print("Bot running!")
 executor.start_polling(dp,skip_updates=True)
